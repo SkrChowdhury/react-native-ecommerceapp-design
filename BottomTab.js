@@ -8,32 +8,45 @@ import ProfileScreen from './app/screens/ProfileScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
+
+
 const BottomTab = () => {
   return (
     <Tab.Navigator>
         <Tab.Screen 
-        name='Home'component={HomeScreen}         options={{
+        name='Home'
+        component={HomeScreen}         
+        options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='home' color='#37BB92' size={25}/>
+            <Icon name='home' color='#5f9ea0' size={25}/>
           ),
         }} />
-        <Tab.Screen name='Subject'component={SubjectScreen} options={{
+        <Tab.Screen 
+        name='Subject'
+        component={SubjectScreen} 
+        options={{
           tabBarLabel: 'Subject',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='bars' color='#37BB92' size={25}/>
+            <Icon name='bars' color='#5f9ea0' size={25}/>
           ),
         }} />
-        <Tab.Screen name='Cart'component={CartScreen} options={{
+        <Tab.Screen 
+        name='Cart'
+        component={CartScreen} 
+        options={{
           tabBarLabel: 'Cart',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='shopping-cart' color='#37BB92' size={25}/>
+            <Icon name='shopping-cart' color='#5f9ea0' size={25}/>
           ),
         }} />
-        <Tab.Screen name='Profile'component={ProfileScreen} options={{
+        <Tab.Screen 
+        name='Profile'
+        component={ProfileScreen} 
+        options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='user' color='#37BB92' size={25}/>
+            <Icon name='user' color='#5f9ea0' size={25}/>
           ),
         }}/>
     </Tab.Navigator>
@@ -42,4 +55,6 @@ const BottomTab = () => {
 
 export default BottomTab
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})
