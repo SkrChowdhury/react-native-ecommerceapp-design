@@ -11,28 +11,29 @@ const Tab = createBottomTabNavigator();
 const BottomTab = () => {
   return (
     <Tab.Navigator>
-        <Tab.Screen name='Home'component={HomeScreen}         options={{
+        <Tab.Screen 
+        name='Home'component={HomeScreen}         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='home' color='#37BB92' size={20}/>
+            <Icon name='home' color='#37BB92' size={25}/>
           ),
         }} />
         <Tab.Screen name='Subject'component={SubjectScreen} options={{
           tabBarLabel: 'Subject',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='bars' color='#37BB92' size={20}/>
+            <Icon name='bars' color='#37BB92' size={25}/>
           ),
         }} />
         <Tab.Screen name='Cart'component={CartScreen} options={{
           tabBarLabel: 'Cart',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='shopping-cart' color='#37BB92' size={20}/>
+            <Icon name='shopping-cart' color='#37BB92' size={25}/>
           ),
         }} />
         <Tab.Screen name='Profile'component={ProfileScreen} options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='bars' color='#37BB92' size={20}/>
+            <Icon name='user' color='#37BB92' size={25}/>
           ),
         }}/>
     </Tab.Navigator>
