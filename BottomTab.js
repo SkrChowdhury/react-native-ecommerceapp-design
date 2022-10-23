@@ -13,8 +13,7 @@ const Tab = createBottomTabNavigator();
 const BottomTab = () => {
   return (
     <Tab.Navigator
-    screenOptions={{tabBarShowLabel:true,
-    tabBarActiveBackgroundColor:'#ffdead',tabBarActiveTintColor:'#5f9ea0',headerShown:false}}
+    screenOptions={{tabBarShowLabel:true,tabBarActiveTintColor:'#5f9ea0',headerShown:false}}
     
     >
         <Tab.Screen 
