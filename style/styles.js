@@ -84,7 +84,41 @@ shadow: {
   shadowOpacity: 2,
   elevation: 4,
   backgroundColor : "#fff" // invisible color
-}
+},
+
+// Top bar navigation styles
+
+ tabGroup:{
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginHorizontal: 15,
+      marginTop:10,
+      justifyContent: 'space-between'
+    },
+    tabButton:{
+        backgroundColor: 'transparent',
+        borderRadius: 46,
+  width:'25%',
+        paddingVertical: 12,
+        alignItems: 'center',
+    },
+    tabButtonActive:{
+        borderBottomColor: '#0B5D1E',
+        borderBottomWidth:2,
+        alignItems: 'center',
+    },
+    tabButtonTitle:{
+        fontSize: 12,
+        fontWeight: '600',
+        textAlign: 'center',
+        color: '#000'
+    },
+    tabButtonTitleActive:{
+        fontSize: 12,
+        fontWeight: 'normal',
+        textAlign: 'center',
+        color: '#000'
+    },
 })
 
 export default styles;

@@ -1,10 +1,52 @@
-import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import {View, Text, ScrollView, TouchableOpacity, Animated} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../../style/styles';
 
+
 const SubjectScreen = () => {
+  
+ const [tab, setTab] = useState({
+        tab1: false,
+        tab2: true
+    });
+
+    const handleTab = (swap) =>{
+       if(swap==="tab1"){
+            setTab({
+               tab1: true,
+               tab2: false,
+               tab3: false,
+               tab4: false,
+            })
+       }
+       if (swap==="tab2") {
+        setTab({
+            tab1: false,
+            tab2: true,
+            tab3: false,
+            tab4:false,
+     })
+       }
+       if (swap==="tab3"){
+        setTab({
+            tab1: false,
+            tab2: false,
+            tab3: true,
+            tab4: false,
+     })
+       }
+       if (swap==="tab4"){
+        setTab({
+            tab1: false,
+            tab2: false,
+            tab3: false,
+            tab4: true,
+     })
+       }
+    }
+
   return (
     <View style={styles.parentContainer}>
       <View style={styles.header}>
@@ -25,46 +67,48 @@ const SubjectScreen = () => {
 
 
 
+      <View style={styles.tabGroup}>
+      <TouchableOpacity
+          activeOpacity={0.6}
+          underlayColor="#37BB92"
+          onPress={()=> handleTab("tab1")}
+          style={[styles.tabButton, tab.tab1 && styles.tabButtonActive]}
 
+      >
+         <Text style={[styles.tabButtonTitle, tab.tab1 && styles.tabButtonTitleActive]}>Mathematics</Text>
+      </TouchableOpacity>
 
-<View style={{width:'90%', marginLeft:'auto',marginRight:'auto'}}>
+      <TouchableOpacity
+         activeOpacity={0.6}
+         underlayColor="#37BB92"
+         onPress={()=> handleTab("tab2")}
+         style={[styles.tabButton, tab.tab2 && styles.tabButtonActive]}
+      >
+         <Text style={[styles.tabButtonTitle, tab.tab2 && styles.tabButtonTitleActive]}>English</Text>
+      </TouchableOpacity>
 
-  <View 
-  style={
-    {
-    flexDirection:'row',
-    marginTop:20, 
-    marginBottom:20
-    }}>
-    <TouchableOpacity 
-    style={
-      {
-        flex:1,
-        justifyContent:'center', alignItems:'center'
-        }}>
-      <Text>Mathematics</Text>
-    </TouchableOpacity>
+      <TouchableOpacity
+         activeOpacity={0.6}
+         underlayColor="#37BB92"
+         onPress={()=> handleTab("tab3")}
+         style={[styles.tabButton, tab.tab3 && styles.tabButtonActive]}
+      >
+         <Text style={[styles.tabButtonTitle, tab.tab3 && styles.tabButtonTitleActive]}>Physics</Text>
+      </TouchableOpacity>
 
-    <TouchableOpacity style={{flex:1,justifyContent:'center', alignItems:'center'}}>
-      <Text>English</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={{flex:1,justifyContent:'center', alignItems:'center'}}>
-      <Text>Physics</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={{flex:1,justifyContent:'center', alignItems:'center'}}>
-      <Text>Chemistry</Text>
-    </TouchableOpacity>
-
+      <TouchableOpacity
+         activeOpacity={0.6}
+         underlayColor="#37BB92"
+         onPress={()=> handleTab("tab4")}
+         style={[styles.tabButton, tab.tab4 && styles.tabButtonActive]}
+      >
+         <Text style={[styles.tabButtonTitle, tab.tab4 && styles.tabButtonTitleActive]}>Chemistry</Text>
+      </TouchableOpacity>
   </View>
 
-</View>
+
 
     </View>
-
-
-
   );
 };
 
