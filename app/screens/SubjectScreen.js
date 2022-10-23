@@ -119,7 +119,8 @@ const SubjectScreen = () => {
    <View style={{margin:15}}>
        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
-         <View style={{height:180,width:170,backgroundColor:'rgb(111,223,143)',borderRadius:20,marginRight:20}}>
+        <TouchableOpacity>
+          <View style={{height:180,width:170,backgroundColor:'rgb(111,223,143)',borderRadius:20,marginRight:20}}>
 
             <View style={{width:50,height:50, borderRadius:50, backgroundColor:'white',marginTop:20,marginLeft:20}}>
                <Icon
@@ -134,8 +135,10 @@ const SubjectScreen = () => {
             <Text style={{color:'#fff', fontWeight:'normal', fontSize:14,marginTop:10,marginLeft:20}}>Chapter Knowledge</Text>
 
          </View>
+        </TouchableOpacity>
 
-         <View style={{height:180,width:170,backgroundColor:'rgb(100,200,254)',borderRadius:20,marginRight:20}}>
+        <TouchableOpacity>
+          <View style={{height:180,width:170,backgroundColor:'rgb(100,200,254)',borderRadius:20,marginRight:20}}>
 
             <View style={{width:50,height:50, borderRadius:50, backgroundColor:'white',marginTop:20,marginLeft:20}}>
                <Icon
@@ -150,6 +153,7 @@ const SubjectScreen = () => {
             <Text style={{color:'#fff', fontWeight:'normal', fontSize:14,marginTop:10,marginLeft:20}}>Study notes</Text>
 
          </View>
+        </TouchableOpacity>
 
          
          
@@ -176,8 +180,8 @@ const SubjectScreen = () => {
               more
             </Text>
           </View>
-      <View style={styles.headerSubtext}>
-         <Text style={styles.headerSubtext1,{color:'#808080'}}>I learned chapter 6 last time</Text>
+      <View>
+         <Text style={{color:'#808080',fontSize:12, marginLeft:10}}>I learned chapter 6 last time</Text>
         
       </View>
         </View>
@@ -200,7 +204,9 @@ const SubjectScreen = () => {
                <Text style={{fontSize:16}}>Positive Rotation</Text>
                <Text style={{fontSize:12,color:'#808080'}}>3 goals today</Text>
             </View>
-           <View ><Text style={{backgroundColor:'#3AB68F', color:'white', fontWeight:'normal',paddingHorizontal:20,paddingVertical:5,borderRadius:30}}>Start</Text></View>
+          <TouchableOpacity>
+             <View ><Text style={{backgroundColor:'#3AB68F', color:'white', fontWeight:'normal',paddingHorizontal:20,paddingVertical:5,borderRadius:30}}>Start</Text></View>
+          </TouchableOpacity>
          
       </View>
 
