@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 const BottomTab = () => {
   return (
     <Tab.Navigator
-    screenOptions={{tabBarShowLabel:true,tabBarActiveTintColor:'#5f9ea0',headerShown:false}}
+    screenOptions={{tabBarShowLabel:true,tabBarActiveTintColor:'#5f9ea0',headerShown:false,tabBarStyle: { height: 60,borderTopRightRadius:40, borderTopLeftRadius:40 }}}
     
     >
         <Tab.Screen 
@@ -21,8 +21,9 @@ const BottomTab = () => {
         component={HomeScreen}         
         options={{
           tabBarLabel: 'Home',
+          tabBarLabelPosition:'below-icon',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='home' color='#5f9ea0' size={25}/>
+            <Icon name='home' color='#CACACA' size={25}/>
           ),
         }} />
         <Tab.Screen 
@@ -31,7 +32,7 @@ const BottomTab = () => {
         options={{
           tabBarLabel: 'Subject',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='bars' color='#5f9ea0' size={25}/>
+            <Icon name='bars' color='#CACACA' size={25}/>
           ),
         }} />
         <Tab.Screen 
@@ -40,7 +41,7 @@ const BottomTab = () => {
         options={{
           tabBarLabel: 'Cart',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='shopping-cart' color='#5f9ea0' size={25}/>
+            <Icon name='shopping-cart' color='#CACACA' size={25}/>
           ),
         }} />
         <Tab.Screen 
@@ -49,7 +50,7 @@ const BottomTab = () => {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <Icon name='user' color='#5f9ea0' size={25}/>
+            <Icon name='user' color='#CACACA' size={25}/>
           ),
         }}/>
     </Tab.Navigator>
