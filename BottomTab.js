@@ -14,7 +14,7 @@ const BottomTab = () => {
   return (
     <Tab.Navigator
     screenOptions={{tabBarShowLabel:true,
-    tabBarActiveBackgroundColor:'#ffdead',tabBarActiveTintColor:'#5f9ea0'}}
+    tabBarActiveBackgroundColor:'#ffdead',tabBarActiveTintColor:'#5f9ea0',headerShown:false}}
     
     >
         <Tab.Screen 

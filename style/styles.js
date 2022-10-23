@@ -97,24 +97,24 @@ shadow: {
     },
     tabButton:{
         backgroundColor: 'transparent',
-        borderRadius: 46,
-  width:'25%',
+        width:100,
         paddingVertical: 12,
         alignItems: 'center',
     },
     tabButtonActive:{
-        borderBottomColor: '#0B5D1E',
+        borderBottomColor: '#37BB92',
         borderBottomWidth:2,
+        borderRadius:50,
         alignItems: 'center',
     },
     tabButtonTitle:{
-        fontSize: 12,
+        fontSize: 15,
         fontWeight: '600',
         textAlign: 'center',
-        color: '#000'
+        color: '#808080'
     },
     tabButtonTitleActive:{
-        fontSize: 12,
+        fontSize: 15,
         fontWeight: 'normal',
         textAlign: 'center',
         color: '#000'
