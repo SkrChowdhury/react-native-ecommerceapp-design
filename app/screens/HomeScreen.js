@@ -34,9 +34,12 @@ const HomeScreen = () => {
           <Text style={styles.headerSubtext2}>right away</Text>
         </View>
         <TextInput
+        
           style={styles.searchField}
           placeholder="Search for your grade, course, training type.."
-          placeholderTextColor="#778899"
+          placeholderTextColor="#DADBDE"
+          backgroundColor="#F8F9FC"
+
         />
 
         <View style={styles.categoryParentContainer}>

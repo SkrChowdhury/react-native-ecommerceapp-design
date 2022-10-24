@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
 parentContainer: {
     flex: 1,
     flexDirection: 'column',
-    marginTop:'4%'
+    marginTop:'4%',
+    backgroundColor:'#fff'
     },
 
 header: {
