@@ -113,7 +113,7 @@ const SubjectScreen = () => {
         >
          {data.map((item,index)=>{
             return(
-<TouchableOpacity
+         <TouchableOpacity
             activeOpacity={0.6}
             underlayColor="#37BB92"
             onPress={()=> handleTab("tab")}
@@ -162,10 +162,9 @@ const SubjectScreen = () => {
 
          {data.map(subject => {
          const singleContent = subject.contents;
-
+           
 
          singleContent.map(content => {
-            console.log(content);
                 return  (<TouchableOpacity>
                   <View style={{height:180,width:170,backgroundColor:'rgb(111,223,143)',borderRadius:20,marginRight:20}}>
 
@@ -221,6 +220,7 @@ const SubjectScreen = () => {
 
          </View>
         </TouchableOpacity> */}
+        
     </ScrollView>
 
 
