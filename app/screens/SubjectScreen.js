@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, Text, ScrollView, TouchableOpacity, Animated} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -6,46 +6,66 @@ import styles from '../../style/styles';
 
 
 const SubjectScreen = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  
+
+  const getSubjects = async () => {
+     try {
+      const response = await fetch('https://gist.githubusercontent.com/SkrChowdhury/670b875411132206615a7f0e64c6daef/raw/ff9f92b4486bda7f0f481b15a66050e6096d776f/subjects.json');
+      const json = await response.json();
+      //console.log('json',json)
+      setData(json);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+    useEffect(() => {
+    getSubjects();
+  }, []);
+
+
  const [tab, setTab] = useState({
         tab1: false,
         tab2: true
     });
 
     const handleTab = (swap) =>{
-       if(swap==="tab1"){
-            setTab({
-               tab1: true,
-               tab2: false,
-               tab3: false,
-               tab4: false,
-            })
-       }
-       if (swap==="tab2") {
-        setTab({
-            tab1: false,
-            tab2: true,
-            tab3: false,
-            tab4:false,
-     })
-       }
-       if (swap==="tab3"){
-        setTab({
-            tab1: false,
-            tab2: false,
-            tab3: true,
-            tab4: false,
-     })
-       }
-       if (swap==="tab4"){
-        setTab({
-            tab1: false,
-            tab2: false,
-            tab3: false,
-            tab4: true,
-     })
-       }
+   //     if(swap==="tab1"){
+   //          setTab({
+   //             tab1: true,
+   //             tab2: false,
+   //             tab3: false,
+   //             tab4: false,
+   //          })
+   //     }
+   //     if (swap==="tab2") {
+   //      setTab({
+   //          tab1: false,
+   //          tab2: true,
+   //          tab3: false,
+   //          tab4:false,
+   //   })
+   //     }
+   //     if (swap==="tab3"){
+   //      setTab({
+   //          tab1: false,
+   //          tab2: false,
+   //          tab3: true,
+   //          tab4: false,
+   //   })
+   //     }
+   //     if (swap==="tab4"){
+   //      setTab({
+   //          tab1: false,
+   //          tab2: false,
+   //          tab3: false,
+   //          tab4: true,
+   //   })
+   //     }
     }
 
   return (
@@ -77,18 +97,37 @@ const SubjectScreen = () => {
 
 
       <View style={styles.tabGroup}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}
+        data={data}
+      //   renderItem={({subject})=> (
+      //     <TouchableOpacity
+      //       activeOpacity={0.6}
+      //       underlayColor="#37BB92"
+      //       onPress={()=> handleTab("tab1")}
+      //       style={[styles.tabButton, tab.tab1 && styles.tabButtonActive]}
+
+      //    >
+      //       <Text style={[styles.tabButtonTitle, tab.tab1 && styles.tabButtonTitleActive]}>{subject.subject}</Text>
+      //    </TouchableOpacity>
+      //   )}
+        >
+         {data.map((item,index)=>{
+            return(
+<TouchableOpacity
             activeOpacity={0.6}
             underlayColor="#37BB92"
-            onPress={()=> handleTab("tab1")}
+            onPress={()=> handleTab("tab")}
             style={[styles.tabButton, tab.tab1 && styles.tabButtonActive]}
 
          >
-            <Text style={[styles.tabButtonTitle, tab.tab1 && styles.tabButtonTitleActive]}>Mathematics</Text>
+            <Text style={[styles.tabButtonTitle, tab.tab1 && styles.tabButtonTitleActive]}>{item.subject}</Text>
          </TouchableOpacity>
+            )
+         })}
+         
 
-         <TouchableOpacity
+
+         {/* <TouchableOpacity
             activeOpacity={0.6}
             underlayColor="#37BB92"
             onPress={()=> handleTab("tab2")}
@@ -113,14 +152,41 @@ const SubjectScreen = () => {
             style={[styles.tabButton, tab.tab4 && styles.tabButtonActive]}
          >
             <Text style={[styles.tabButtonTitle, tab.tab4 && styles.tabButtonTitleActive]}>Chemistry</Text>
-         </TouchableOpacity>
+         </TouchableOpacity> */}
         </ScrollView>
     </View>
     
    <View style={{margin:15}}>
-       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+       <ScrollView horizontal showsHorizontalScrollIndicator={false} data={data.contents}>
 
-        <TouchableOpacity>
+
+         {data.map(subject => {
+         const singleContent = subject.contents;
+
+
+         singleContent.map(content => {
+            console.log(content);
+                return  (<TouchableOpacity>
+                  <View style={{height:180,width:170,backgroundColor:'rgb(111,223,143)',borderRadius:20,marginRight:20}}>
+
+            <View style={{width:50,height:50, borderRadius:50, backgroundColor:'white',marginTop:20,marginLeft:20}}>
+               <Icon
+              style={{alignSelf:'center',marginTop:10}}
+              name={content.icon}
+              size={28}
+              color='#37BB92'
+            />
+
+            </View>
+            <Text style={{color:'#fff', fontWeight:'bold', fontSize:24,marginTop:10,marginLeft:20}}>{content.title}</Text>
+            <Text style={{color:'#fff', fontWeight:'normal', fontSize:14,marginTop:10,marginLeft:20}}>{content.subTitle}</Text>
+
+               </View>
+            </TouchableOpacity>)
+})  
+})
+}
+        {/* <TouchableOpacity>
           <View style={{height:180,width:170,backgroundColor:'rgb(111,223,143)',borderRadius:20,marginRight:20}}>
 
             <View style={{width:50,height:50, borderRadius:50, backgroundColor:'white',marginTop:20,marginLeft:20}}>
@@ -154,12 +220,11 @@ const SubjectScreen = () => {
             <Text style={{color:'#fff', fontWeight:'normal', fontSize:14,marginTop:10,marginLeft:20}}>Study notes</Text>
 
          </View>
-        </TouchableOpacity>
-
-         
-         
-
+        </TouchableOpacity> */}
     </ScrollView>
+
+
+
 
             <View style={{marginTop: 12}}>
           <View
